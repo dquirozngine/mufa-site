@@ -18,8 +18,9 @@ export const siteContent = {
     title: "(u)ⁿ",
     description:
       "Library and biography — experimental architecture, membranes, and life at the limits.",
-    // TODO: real domain, used for canonical / OG tags.
-    url: "https://example.com",
+    // Cloudflare-provided address, used for canonical / OG tags. Swap this for
+    // a custom domain if the site ever gets one.
+    url: "https://mufa-site.dquiroz-ngine.workers.dev",
   },
 
   nav: {
