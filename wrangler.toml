@@ -1,0 +1,31 @@
+# Cloudflare Workers + Static Assets config.
+#
+# Deploys a Worker whose only dynamic job is the contact form; everything else
+# falls through to the static files under ./out (produced by `pnpm build` with
+# output: "export"). No Node runtime, no SSR, no OpenNext — files at the edge.
+
+name = "mufa-site"
+compatibility_date = "2025-01-01"
+main = "./worker/index.ts"
+
+[assets]
+# Build output, relative to this file.
+directory = "./out"
+
+# Unmatched paths serve out/404.html if it exists, otherwise Cloudflare's
+# default 404. Switch to "single-page-application" only if this becomes a SPA.
+not_found_handling = "404-page"
+
+# Bound so the Worker can fall through to static files for anything it doesn't
+# handle itself (i.e. everything except /api/contact).
+binding = "ASSETS"
+
+# Non-secret config (committed to git, fine).
+# RESEND_API_KEY is a SECRET — set it with `wrangler secret put RESEND_API_KEY`
+# or in the dashboard (Workers → mufa-site → Settings → Variables and Secrets).
+# Never put it here.
+[vars]
+# TODO: replace with the real sending identity. The `from` domain must be
+# verified in Resend before sends will succeed.
+EMAIL_FROM = "Mufa <hello@example.com>"
+EMAIL_TO = "hello@example.com"

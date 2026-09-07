@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.wrangler
+.dev.vars
+.DS_Store
+*.tsbuildinfo
+
+# Source material — originals live here, processed assets go to public/.
+# Not deployed (only public/ is copied into out/), and not committed.
+resources/

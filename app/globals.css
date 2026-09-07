@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #000;
+  background: #f2f2f2;
+}
+
+* {
+  box-sizing: border-box;
+  /* Hard edges are the rule, not the default — una-unless sets
+     border-radius: 0 explicitly, including on buttons and inputs. */
+  border-radius: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f2f2f2;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ff512e;
+  color: #f2f2f2;
+}
+
+/* The signature interaction: a bordered element that inverts on hover.
+   Used on buttons, the submit control, and outbound links. */
+.invert-hover {
+  border: 2px solid #1b1b1b;
+  background-color: transparent;
+  color: #1b1b1b;
+  transition:
+    background-color 500ms ease,
+    color 500ms ease,
+    border-color 500ms ease;
+}
+
+.invert-hover:hover,
+.invert-hover:focus-visible {
+  background-color: #1b1b1b;
+  color: #f2f2f2;
+}
+
+/* Full-bleed hairline between catalogue rows. A single top border per row
+   plus one closing border on the list gives an even rule everywhere without
+   doubling up between adjacent rows. */
+.rule-top {
+  border-top: 1px solid #1b1b1b;
+}
+
+/* Focus ring that survives on both the off-white ground and the inverted
+   (black) row state. */
+:focus-visible {
+  outline: 2px solid #ff512e;
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   Entry splash (components/Intro.tsx)
+
+   White ground, logo centred, two seconds, then the whole overlay fades out.
+   Everything is driven by `animation-fill-mode: forwards` so the splash
+   dismisses itself with no JavaScript involved.
+   --------------------------------------------------------------------------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  animation: intro-out 400ms ease 1600ms forwards;
+}
+
+.intro-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  /* Rises into place, then keeps drifting a hair larger so the mark is still
+     moving when the overlay lifts — a dead-still logo reads as a stall. */
+  animation: intro-logo 1900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.intro-rule {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ff512e;
+  transform-origin: left center;
+  animation: intro-rule 900ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+}
+
+@keyframes intro-logo {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+  }
+}
+
+@keyframes intro-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Still shows the logo for the same beat, just without the travel. */
+@media (prefers-reduced-motion: reduce) {
+  .intro-logo,
+  .intro-rule {
+    animation: intro-fade 400ms ease both;
+  }
+
+  @keyframes intro-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
