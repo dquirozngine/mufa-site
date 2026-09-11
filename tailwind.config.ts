@@ -16,10 +16,6 @@ const config: Config = {
         // Slightly lifted black for borders and buttons — pure #000 on #F2F2F2
         // is a touch harsh at 2px rule weight.
         graphite: "#1B1B1B",
-        // Mid grey for the epigraph's decode wave. Dark enough to hold its own
-        // against the paper ground, light enough that scrambling glyphs read
-        // as unresolved next to the near-black settled text.
-        smoke: "#7C7C7C",
         accent: "#FF512E",
         marine: "#3537B2",
       },

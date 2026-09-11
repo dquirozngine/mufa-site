@@ -38,7 +38,7 @@ export default function BioPage() {
                 {bio.name}
               </h2>
               {/* Collective, set in the original Japanese. */}
-              <p className="mt-2 text-sm leading-snug">{bio.collective}</p>
+              <p className="mt-2 text-xs leading-snug">{bio.collective}</p>
 
               {/* The opening paragraph carries the size the page used to give
                   the whole bio; at four paragraphs, holding 2xl throughout
@@ -49,8 +49,8 @@ export default function BioPage() {
                     key={i}
                     className={
                       i === 0
-                        ? "text-lg leading-relaxed sm:text-xl"
-                        : "text-base leading-relaxed"
+                        ? "hyphens-auto text-justify text-lg leading-relaxed sm:text-xl"
+                        : "hyphens-auto text-justify text-base leading-relaxed"
                     }
                   >
                     {paragraph}
