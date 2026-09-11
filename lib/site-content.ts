@@ -40,6 +40,30 @@ export const siteContent = {
       "The reading behind the work — extremophiles and origins of life, pneumatic and membrane architecture, ecology, and the philosophy of the living.",
   },
 
+  // The epigraph that opens the catalogue. Set hard right, against the
+  // left-locked LIBRARY headline, and revealed as you scroll past it.
+  //
+  // PASTE THE PASSAGE HERE — one string per paragraph. The section renders
+  // nothing at all while `paragraphs` is empty, so the site stays intact
+  // until the text is in.
+  epigraph: {
+    // ⚠️ PLACEHOLDER — my own wording, standing in only so the layout and the
+    // reveal can be judged at the right length. Replace both strings with the
+    // real Maturana & Varela passage.
+    paragraphs: [
+      "A living system is not a thing but a doing. What holds it together is not the matter passing through it, which is replaced continuously and without ceremony, but the pattern of processes by which that matter is put to work. The components produce the network, and the network produces the components, and neither is prior to the other. Stop the production for long enough and there is no structure left to point at, because the structure was never a structure in the first place — it was an activity that looked like one from the outside. This is the sense in which such a system is closed: not sealed off from the world, which would kill it, but self-specifying, determining its own organisation through its own operation, and answering perturbation with compensation rather than with instruction.",
+      "The consequence worth sitting with is that the boundary is produced too. A membrane is not a wall laid down in advance and then filled; it is made by the processes it goes on to contain, and it persists only while they continue to make it. The system therefore has no blueprint and no builder, and it is not assembled so much as maintained. What it conserves is not its parts, and not even its shape, but the relations among its processes — and it will change anything else at all in order to keep those constant. Everything architecture usually takes for granted is here reversed: form is the residue of continuous production, enclosure is an ongoing achievement rather than a given, and permanence, where it appears, is only the visible face of a turnover that never stops.",
+    ] as string[],
+    // Marginal note, set in the narrow column beside the quote.
+    citation: [
+      "Maturana, Humberto R., and Francisco J. Varela,",
+      "Autopoiesis and Cognition: The Realization of the Living.",
+      "Boston Studies in the Philosophy of Science, vol. 42.",
+      "Dordrecht: D. Reidel, 1980, pp. 78–79.",
+    ],
+    isbn: "ISBN 90-277-1015-5",
+  },
+
   books: {
     label: "Index",
     // Alphabetical by title, ignoring a leading article. Renders in the order
@@ -50,6 +74,12 @@ export const siteContent = {
       subtitle: "Collected Writings 2003–2018",
       author: "Reza Negarestani",
       cover: "/covers/abducting-the-outside.jpg",
+    },
+    {
+      title: "Antarctic Microbiology",
+      subtitle: "",
+      author: "E. Imre Friedmann (ed.)",
+      cover: "/covers/antarctic-microbiology.jpg",
     },
     {
       title: "Antarctic Resolution",
@@ -80,6 +110,18 @@ export const siteContent = {
       subtitle: "",
       author: "William G. Characklis, Kevin C. Marshall (eds.)",
       cover: "/covers/biofilms.jpg",
+    },
+    {
+      title: "Biopolyesters",
+      subtitle: "",
+      author: "W. Babel, A. Steinbüchel (eds.)",
+      cover: "/covers/biopolyesters.jpg",
+    },
+    {
+      title: "Biotechnology of Biopolymers",
+      subtitle: "From Synthesis to Patents",
+      author: "Alexander Steinbüchel, Yoshiharu Doi (eds.)",
+      cover: "/covers/biotechnology-of-biopolymers.jpg",
     },
     {
       title: "Critical Zones",
@@ -116,6 +158,18 @@ export const siteContent = {
       subtitle: "Tipping Point for Planet Earth?",
       author: "Anthony D. Barnosky, Elizabeth A. Hadly",
       cover: "/covers/end-game.jpg",
+    },
+    {
+      title: "Environmental Microbiology",
+      subtitle: "",
+      author: "Walter Reineke, Michael Schlömann",
+      cover: "/covers/environmental-microbiology.jpg",
+    },
+    {
+      title: "Environmental Microbiology: Fundamentals and Applications",
+      subtitle: "Microbial Ecology",
+      author: "Jean-Claude Bertrand, Pierre Caumette, Philippe Lebaron, Robert Matheron, Philippe Normand, Télesphore Sime-Ngando (eds.)",
+      cover: "/covers/environmental-microbiology-fundamentals.jpg",
     },
     {
       title: "Enzymatic Polymerization towards Green Polymer Chemistry",
@@ -166,6 +220,12 @@ export const siteContent = {
       cover: "/covers/hack-the-planet.jpg",
     },
     {
+      title: "Handbook of Biopolymers",
+      subtitle: "",
+      author: "Sabu Thomas, Ajitha AR, Cintil Jose Chirayil, Bejoy Thomas (eds.)",
+      cover: "/covers/handbook-of-biopolymers.jpg",
+    },
+    {
       title: "Hans-Walter Müller und das lebendige Haus",
       subtitle: "",
       author: "Robert Stürzl",
@@ -212,6 +272,12 @@ export const siteContent = {
       subtitle: "For a Planetary Thinking",
       author: "Yuk Hui",
       cover: "/covers/machine-and-sovereignty.jpg",
+    },
+    {
+      title: "Metabolic Engineering",
+      subtitle: "",
+      author: "J. Nielsen (ed.)",
+      cover: "/covers/metabolic-engineering.jpg",
     },
     {
       title: "Microbial Bioreactors for Industrial Molecules",
@@ -278,6 +344,12 @@ export const siteContent = {
       subtitle: "",
       author: "Pierre Huyghe",
       cover: "/covers/pierre-huyghe.jpg",
+    },
+    {
+      title: "Plastics from Bacteria",
+      subtitle: "Natural Functions and Applications",
+      author: "Guo-Qiang Chen (ed.)",
+      cover: "/covers/plastics-from-bacteria.jpg",
     },
     {
       title: "Polyextremophiles",
@@ -347,8 +419,15 @@ export const siteContent = {
     title: "Profil",
     portrait: "/portrait.jpg",
     portraitAlt: "Portrait in the laboratory",
-    // Verbatim from bio.pdf, which is written in German.
-    paragraphs: ["Architekt und bildender Künstler mit Doppelabschluss der TU Berlin und der Pontificia Universidad Católica de Chile. Umfangreiche Erfahrung in experimenteller Architektur, Skulptur, Ausstellungsproduktion und materialbasierter Praxis — von Membranfertigung und Metallbearbeitung bis zur ortsspezifischen Installation. Aktive internationale Ausstellungs- und Wettbewerbstätigkeit seit 2011. Derzeit Doktorand an der Universität Innsbruck, Institut für Experimentelle Architektur, Integrative/s Design EXTREMES."],
+    name: "Miguel Angel Reyes Benz",
+    // Art collective "Ari" (ant).
+    collective: "アート・コレクティブ「蟻」",
+    paragraphs: [
+      "Miguel Angel Reyes Benz is a M.Sc. architect, visual artist and researcher. Influenced by Frei Otto and the Institut for lightweight structures and conceptual design (ILEK) he moved to Germany and got his dual degree from TU Berlin and Pontificia Universidad Católica de Chile under the DAAD (German Academic Exchange Service) sponsorship.",
+      "His work moves between experimental architecture, sculpture, and exhibition production, always rooted in hands-on material practice, from membrane fabrication and metalworking to site-specific installation. He has been actively exhibiting and participating in architecture and art competitions internationally since 2011. For more than a decade he has carried out para-academic research at the intersection of art, architecture, and frontier sciences.",
+      "He is currently enrolled as a PhD student at the University of Innsbruck\u2019s Institute for Experimental Architecture, in the Integrative Design | EXTREMES program, supervised by Univ.-Prof. Dr. Barbara Imhof. His doctoral research, titled \u2018Negentropic Bifurcations Towards an Autopoietic Polyextremophile Transilience\u2019, looks at how PHA (polyhydroxyalkanoate), a biodegradable biopolymer produced by extremophile bacteria, could serve as a membrane building material for pneumatic life support systems in extreme environments on Earth. The project works across three scales (molecular, material, and architectural), connecting systems metabolic engineering, environmental microbiology, materials engineering, and architecture for extreme environments. Aimed to a field tested prototype of a lightweight pneumatic structure, tested in the Icelandic highlands and in Antarctica.",
+      "He participated at FALCON Conference, University of Iceland, Reykjav\u00edk 2025, organized by AbGradE (Astrobiology Graduates in Europe), Berlin Early Career Space Research Conference, Freie Universit\u00e4t Berlin 2025 and 15th International Congress on Extremophiles, Yonsei University, Seoul, Republic of Korea 2026.",
+    ],
     education: {
       label: "Ausbildung",
       items: [

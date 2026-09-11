@@ -6,6 +6,9 @@ import { siteContent } from "@/lib/site-content";
 export function BooksSection() {
   const { books } = siteContent;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Covers that failed to load. A missing file shouldn't render as a broken
+  // image icon — the row falls back to a typographic card instead.
+  const [failed, setFailed] = useState<string[]>([]);
 
   return (
     <section id="library" className="scroll-mt-16 border-b border-graphite">
@@ -70,11 +73,27 @@ export function BooksSection() {
                         nobody has asked to see yet. */}
                     {isOpen ? (
                       <figure className="max-w-[16rem]">
-                        <img
-                          src={book.cover}
-                          alt={`Cover of ${book.title}`}
-                          className="w-full"
-                        />
+                        {failed.includes(book.cover) ? (
+                          <div className="flex aspect-[2/3] w-full flex-col justify-between border-2 border-current p-4">
+                            <span className="text-[0.625rem] uppercase tracking-wide">
+                              Cover pending
+                            </span>
+                            <span className="font-display text-base font-bold uppercase leading-tight tracking-display">
+                              {book.title}
+                            </span>
+                          </div>
+                        ) : (
+                          <img
+                            src={book.cover}
+                            alt={`Cover of ${book.title}`}
+                            className="w-full"
+                            onError={() =>
+                              setFailed((prev) =>
+                                prev.includes(book.cover) ? prev : [...prev, book.cover],
+                              )
+                            }
+                          />
+                        )}
                         {book.subtitle ? (
                           <figcaption className="mt-3 text-xs leading-snug">
                             {book.subtitle}

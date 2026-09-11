@@ -63,11 +63,11 @@ export function ContactSection() {
       <div className="grid gap-8 sm:grid-cols-[6rem_1fr] lg:gap-16">
         <h2 className="text-xs uppercase tracking-wide">{contact.label}</h2>
 
-        <div className="max-w-2xl">
+        <div>
           <p className="font-display text-3xl font-bold uppercase leading-none tracking-display sm:text-5xl">
             {contact.title}
           </p>
-          <p className="mt-6 max-w-lg text-base leading-relaxed">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed">
             {contact.description}
           </p>
 

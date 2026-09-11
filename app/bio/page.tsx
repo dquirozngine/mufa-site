@@ -34,11 +34,29 @@ export default function BioPage() {
             />
 
             <div className="max-w-2xl">
-              {bio.paragraphs.map((paragraph, i) => (
-                <p key={i} className="text-xl leading-relaxed sm:text-2xl">
-                  {paragraph}
-                </p>
-              ))}
+              <h2 className="font-display text-2xl font-bold uppercase leading-tight tracking-display sm:text-3xl">
+                {bio.name}
+              </h2>
+              {/* Collective, set in the original Japanese. */}
+              <p className="mt-2 text-sm leading-snug">{bio.collective}</p>
+
+              {/* The opening paragraph carries the size the page used to give
+                  the whole bio; at four paragraphs, holding 2xl throughout
+                  would be exhausting to read. */}
+              <div className="mt-8 space-y-6 border-t border-graphite pt-8">
+                {bio.paragraphs.map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className={
+                      i === 0
+                        ? "text-lg leading-relaxed sm:text-xl"
+                        : "text-base leading-relaxed"
+                    }
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </section>
