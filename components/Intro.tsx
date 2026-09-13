@@ -45,11 +45,8 @@ export function Intro() {
           alt={siteContent.footer.name}
           width={900}
           height={555}
-          className="h-16 w-auto sm:h-20 lg:h-24"
+          className="h-28 w-auto sm:h-36 lg:h-48"
         />
-        {/* Accent rule draws itself under the mark — same vocabulary as the
-            hairlines that divide the rest of the site. */}
-        <span className="intro-rule" />
       </div>
     </div>
   );

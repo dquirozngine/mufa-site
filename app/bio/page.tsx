@@ -40,18 +40,13 @@ export default function BioPage() {
               {/* Collective, set in the original Japanese. */}
               <p className="mt-2 text-xs leading-snug">{bio.collective}</p>
 
-              {/* The opening paragraph carries the size the page used to give
-                  the whole bio; at four paragraphs, holding 2xl throughout
-                  would be exhausting to read. */}
+              {/* Set at the same size as the collective line above, so the
+                  whole block reads as one small-type column. */}
               <div className="mt-8 space-y-6 border-t border-graphite pt-8">
                 {bio.paragraphs.map((paragraph, i) => (
                   <p
                     key={i}
-                    className={
-                      i === 0
-                        ? "hyphens-auto text-justify text-lg leading-relaxed sm:text-xl"
-                        : "hyphens-auto text-justify text-base leading-relaxed"
-                    }
+                    className="hyphens-auto text-justify text-xs leading-relaxed"
                   >
                     {paragraph}
                   </p>
